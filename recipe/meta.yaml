@@ -19,7 +19,12 @@ requirements:
     # node's build scripts find and use MSVC 2015, regardless of conda's setting.
     - toolchain
     - vs2015_runtime  # [win]
-    - python          2.7.*
+    # nodejs requires Python 2.7 to build,
+    # but nodejs paths are too long for Python 2.7 on Windows.
+    # Run conda-build with Python 3.6 on Windows,
+    # and activate Python 2 in bld.bat.
+    - python          2.7.* # [not win]
+    - python          3.6.* # [win]
     - gcc             # [linux]
   run:
     - vs2015_runtime   # [win]

@@ -1,7 +1,11 @@
 if "%ARCH%"=="32" (
    set PLATFORM=x86
+   REM activate x86 Python 2.7
+   call C:\Miniconda\Scripts\activate.bat
 ) else (
-  set PLATFORM=x64
+   set PLATFORM=x64
+   REM activate x64 Python 2.7
+   call C:\Miniconda-x64\Scripts\activate.bat
 )
 
 call vcbuild.bat nosign release %PLATFORM%
